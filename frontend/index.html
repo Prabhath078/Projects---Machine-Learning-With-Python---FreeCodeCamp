@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Portfolio | freeCodeCamp Projects</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="dark-theme">
+    <div class="dashboard">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-brand">
+                <i data-lucide="cpu" class="brand-icon"></i>
+                <span>ML.Hub</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="#">
+                        <i data-lucide="message-square-warning"></i>
+                        <span>Spam Detector</span>
+                    </a>
+                </li>
+                <li class="nav-item locked">
+                    <a href="#">
+                        <i data-lucide="image"></i>
+                        <span>Image Classifier</span>
+                        <span class="badge">Soon</span>
+                    </a>
+                </li>
+                <li class="nav-item locked">
+                    <a href="#">
+                        <i data-lucide="book-open"></i>
+                        <span>Book Recommender</span>
+                        <span class="badge">Soon</span>
+                    </a>
+                </li>
+                <li class="nav-item locked">
+                    <a href="#">
+                        <i data-lucide="activity"></i>
+                        <span>Health Costs</span>
+                        <span class="badge">Soon</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <p>Built with TensorFlow</p>
+            </div>
+        </nav>
+
+        <!-- Main Workspace -->
+        <main class="workspace">
+            <!-- Topbar -->
+            <header class="topbar">
+                <div class="page-info">
+                    <h1>Neural Network SMS Classifier</h1>
+                    <p class="subtitle">Natural Language Processing (NLP) Model</p>
+                </div>
+                <div class="status-badge">
+                    <span class="pulse"></span>
+                    API Active
+                </div>
+            </header>
+
+            <!-- Dashboard Grid -->
+            <div class="grid-container">
+                <!-- Left Column: Input -->
+                <div class="panel input-panel">
+                    <div class="panel-header">
+                        <h2><i data-lucide="terminal"></i> Input Data</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="textarea-wrapper">
+                            <textarea id="sms-input" placeholder="Type or paste a text message here to analyze..."></textarea>
+                            <div class="textarea-footer">
+                                <span id="char-count">0 / 500</span>
+                                <button id="predict-btn" class="btn-primary">
+                                    <span>Run Analysis</span>
+                                    <i data-lucide="play"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Results & Architecture -->
+                <div class="right-col">
+                    <!-- Result Panel -->
+                    <div class="panel result-panel">
+                        <div class="panel-header">
+                            <h2><i data-lucide="bar-chart-2"></i> Prediction Result</h2>
+                        </div>
+                        <div class="panel-body result-body" id="result-container">
+                            <div class="empty-state" id="empty-state">
+                                <i data-lucide="search" class="empty-icon"></i>
+                                <p>Awaiting input for analysis...</p>
+                            </div>
+
+                            <div class="analysis-result hidden" id="analysis-result">
+                                <div class="classification-badge" id="classification-badge">
+                                    <i data-lucide="shield-check" id="result-icon"></i>
+                                    <h3 id="prediction-text">Safe (Ham)</h3>
+                                </div>
+                                
+                                <div class="confidence-section">
+                                    <div class="confidence-header">
+                                        <span>Confidence Score</span>
+                                        <span id="confidence-percent" class="mono-text">0%</span>
+                                    </div>
+                                    <div class="progress-bar-bg">
+                                        <div class="progress-bar-fill" id="confidence-bar"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Model Info Panel -->
+                    <div class="panel info-panel">
+                        <div class="panel-header">
+                            <h2><i data-lucide="layers"></i> Model Architecture</h2>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="architecture-list">
+                                <li><span class="layer-name">Text Vectorization</span> <span class="layer-desc">Tokenizer (maxlen=50)</span></li>
+                                <li><span class="layer-name">Embedding</span> <span class="layer-desc">32 Dimensions</span></li>
+                                <li><span class="layer-name">Pooling</span> <span class="layer-desc">GlobalAvgPooling1D</span></li>
+                                <li><span class="layer-name">Dense (Hidden)</span> <span class="layer-desc">32 Units, ReLU</span></li>
+                                <li><span class="layer-name">Dense (Output)</span> <span class="layer-desc">1 Unit, Sigmoid</span></li>
+                            </ul>
+                            <div class="model-stats">
+                                <div class="stat-box">
+                                    <span class="stat-value">98.7%</span>
+                                    <span class="stat-label">Accuracy</span>
+                                </div>
+                                <div class="stat-box">
+                                    <span class="stat-value">20</span>
+                                    <span class="stat-label">Epochs</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
